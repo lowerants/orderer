@@ -1,14 +1,14 @@
 # The Orderer Machine
 
-In this assignment you will provide two implementations of a data structure termed the `Orderer`. It can be throught of a
-as machine for ordering generic items. The machine operates in two states: an *add* state and a rm state (remove state).
+In this assignment you will provide two implementations of an abstract data type termed the `Orderer` --
+a 'machine' for ordering generic items. 
 
 ## Part 1: Implementing the `Orderer` interface
 
 > The work in the M06 lecture videos (where a singly linked list is developed) can help 
 with the generics here. 
 
-The `Orderer`interface can be thought of as a conceptualization of a 
+The `Orderer` interface can be thought of as a conceptualization of a 
 machine that operates in two states: add -- where users toss in items, and rm (removal) 
 states where users can remove items one at a time in order.
 
@@ -32,17 +32,24 @@ a removal state by calling `crank()`.
 
 Write unit tests for the `Orderer` and its two implementations. 
 
-Note that you're testing two separate implementations of a common interface here and common contracts for each 
-method. For example, the `add` method just adds: doesn't say anything about whether its 
-getting added in sorted order). 
+Note that you're testing two separate implementations of an interface and its core operations. Meaning 
+the methods you'll be testing for each implementation will (by definition) should have the same behavior. 
 
-So check to see if there are jUnit mechanisms (or others) to reduce the need to duplicate your tests for both 
+> For example, the `add` method just adds: doesn't say anything about where or in what 
+order it's getting added (whether you are testing the first implementation or the second).
+
+This also slightly complicates `toString` as the order in which items are stored across both implementations 
+may vary -- so consider writing your unit tests such that you're not merely comparing toString representations 
+of each class.
+
+Check to see if there are jUnit mechanisms (or others) to reduce the need to duplicate your tests for both 
 implementations. 
 
 ## Part 3: Brief Reflection
 
-Write a little about any challenges (with generics, coming up with runtimes, etc.). Discuss how you 
-approached testing and some of the differences between your two implementations. 
+Write about any challenges (with generics, coming up with runtimes, etc.). Discuss how you 
+approached testing and some of the key differences between both of your two implementations 
+of the `Orderer` interface. 
 
 # Handin
 
