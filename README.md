@@ -35,11 +35,11 @@ Write unit tests for the `Orderer` and its two implementations.
 Note that you're testing two separate implementations of an interface and its core operations. Meaning 
 the methods you'll be testing for each implementation will (by definition) should have the same behavior. 
 
-> For example, the `add` method just adds: doesn't say anything about where or in what 
-order it's getting added (whether you are testing the first implementation or the second).
+> For example, the interface intentionally doesn't say really say anything about 
+> where an item gets put when `add(..)` is called (or regarding order).
 
 This also slightly complicates `toString` as the order in which items are stored across both implementations 
-may vary -- so consider writing your unit tests such that you're not merely comparing toString representations 
+may vary -- so consider writing your unit tests such that you're not just comparing toString representations 
 of each class.
 
 Check to see if there are jUnit mechanisms (or others) to reduce the need to duplicate your tests for both 
