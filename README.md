@@ -12,7 +12,7 @@ The `Orderer` interface can be thought of as a conceptualization of a
 machine that operates in two states: add -- where users toss in items, and rm (removal) 
 states where users can remove items one at a time in order.
 
-<img src="img/orderer-machine.png" alt="mchine" width="450"/>
+<img src="img/orderer-machine.png" alt="mchine" width="550"/>
 
 You will provide two implementations of this `Orderer` ADT -- as shown in the UML. 
 * the first implementation must use an `ArrayList` to store the contents 
