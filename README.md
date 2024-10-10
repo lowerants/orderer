@@ -58,6 +58,6 @@ cd to the project directory, then make a commit by typing:
 
 > git commit -am "message goes here"
 
-then follow this up with a
+(the message can be different) then follow this up with a
 
 > git push origin main
