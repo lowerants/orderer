@@ -16,21 +16,25 @@ public class LinkedListImpl<U> implements Orderer<U> {
     }
 
     @Override
+    // O(1)
     public void add(U item) {
-        this.list.add(item);
+        this.list.add(item); // O(1)
     }
 
     @Override
+    // O(1)
     public void crank() {
         this.accepting = !this.accepting;
     }
 
     @Override
+    // O(1)
     public boolean isAccepting() {
         return this.accepting;
     }
 
     @Override
+    // O(2n)
     public U remove() {
         if(this.accepting) {
             throw new IllegalStateException("HOMO");
@@ -41,16 +45,18 @@ public class LinkedListImpl<U> implements Orderer<U> {
 
         int removal = 0;
         // skipping contains because it adds O(n) runtime
-        for(int i = 0; i < list.size()-1; i++) {
-            if(this.o.compare(list.get(removal), list.get(i+1)) > 0) {
+        for(int i = 0; i < list.size()-1; i++) { // O(n)
+            if(this.o.compare(list.get(removal), list.get(i+1)) > 0) { // O(1)
                 removal = i+1;
             }
         }
 
         return list.remove(removal); // removes element
+        // O(n)
     }
 
     @Override
+    // O(1)
     public boolean isEmpty() {
         return false;
     }

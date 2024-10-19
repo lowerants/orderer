@@ -8,12 +8,15 @@ public class OrdererTests {
     // @Test methods go in here...
     @Test
     public void testArrayImplAdd() {
-        ArrayImpl<Integer> arr = new ArrayImpl<Integer>(Integer::compare);
+        Orderer<Integer> arr = new ArrayImpl<Integer>(Integer::compare);
+//        Orderer<Integer> lis = new LinkedListImpl<Integer>(Integer::compare);
         arr.add(1);
         arr.add(-1);
         arr.add(4);
         arr.add(-4);
-        Assertions.assertEquals("[-4, -1, 1, 4]", arr.toString());
+
+        Assertions.assertEquals("[1, -1, 4, -4]", arr.toString());
+//        Assertions.assertEquals("[-4, -1, 1, 4]", arr.toString());
     }
 
     @Test

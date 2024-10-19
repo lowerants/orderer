@@ -15,8 +15,10 @@ public class ArrayImpl<U> implements Orderer<U>{
     }
 
     @Override
+    // O(nlogn)
     public void crank() {
         this.accepting = !this.accepting;
+        this.contents.sort(o); // O(nlogn)
     }
 
     @Override
@@ -29,30 +31,32 @@ public class ArrayImpl<U> implements Orderer<U>{
     }
 
     @Override
+    // O(1)
     public void add(U item) throws IllegalStateException {
         if(!this.accepting) {
             throw new IllegalStateException("You're");
         }
-        if(contents.isEmpty()) {
+//        if(contents.isEmpty()) {
             this.contents.add(item);
-        }
-        else {
-            if(o.compare(item, this.contents.getFirst()) < 0) {
-                this.contents.addFirst(item);
-            }
-            else {
-                for(int i = 1; i < this.contents.size(); i++) { // loops through ArrayList
-                    if(o.compare(item, this.contents.get(i)) < 0) {
-                        this.contents.add(i, item);
-                        return;
-                    }
-                }
-            }
-
-        }
+//        }
+//        else {
+//            if(o.compare(item, this.contents.getFirst()) < 0) {
+//                this.contents.addFirst(item);
+//            }
+//            else {
+//                for(int i = 1; i < this.contents.size(); i++) { // loops through ArrayList
+//                    if(o.compare(item, this.contents.get(i)) < 0) {
+//                        this.contents.add(i, item);
+//                        return;
+//                    }
+//                }
+//            }
+//
+//        }
     }
 
     @Override
+    // O(n)
     public U remove() {
         if(this.accepting) {
             throw new IllegalStateException("HOMO");
@@ -68,7 +72,8 @@ public class ArrayImpl<U> implements Orderer<U>{
 //                removal = i+1;
 //            }
 //        }
-        return contents.remove(0); // removes element
+        return contents.removeFirst(); // removes element
+        // O(n)
 
 
         // do I need to do anything if the element wasn't in it?
