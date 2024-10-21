@@ -18,7 +18,7 @@ public class LinkedListImpl<U> implements Orderer<U> {
     @Override
     // O(1)
     public void add(U item) {
-        this.list.add(item); // O(1)
+        this.list.addFirst(item); // O(1)
     }
 
     @Override
@@ -35,9 +35,9 @@ public class LinkedListImpl<U> implements Orderer<U> {
 
     @Override
     // O(2n)
-    public U remove() {
+    public U remove() throws IllegalStateException {
         if(this.accepting) {
-            throw new IllegalStateException("HOMO");
+            throw new IllegalStateException("Crank to begin removal");
         }
         else if (this.list.size() == 1) {
             return this.list.removeFirst();
@@ -45,13 +45,13 @@ public class LinkedListImpl<U> implements Orderer<U> {
 
         int removal = 0;
         // skipping contains because it adds O(n) runtime
-        for(int i = 0; i < list.size()-1; i++) { // O(n)
-            if(this.o.compare(list.get(removal), list.get(i+1)) > 0) { // O(1)
+        for(int i = 0; i < this.list.size()-1; i++) { // O(n)
+            if(this.o.compare(this.list.get(removal), this.list.get(i+1)) > 0) { // O(1)
                 removal = i+1;
             }
         }
 
-        return list.remove(removal); // removes element
+        return this.list.remove(removal); // removes element
         // O(n)
     }
 
